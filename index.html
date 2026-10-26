@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>2026 연구학교 합동보고회</title>
 <!--
 ============================================================
@@ -5,8 +10,9 @@
 ============================================================
 ■ 프로젝트
   2026 디지털 기반 학생맞춤교육 연구학교 합동보고회 및 성과 나눔회 안내 웹사이트
-  - 일시: 2026. 11. 11.(수) 14:00~17:00 (확정)
-  - 장소: 양산 석산초등학교 (확정, 개최교)
+  - 일시: 2026. 11. 11.(수) 14:20~16:20, 등록 14:00~ (확정, 운영 계획(안) 기준)
+  - 장소: 양산 석산초등학교 체육관 (확정, 개최교, 모든 행사는 체육관에서만 진행) / 수업 공개는 각 학교 계획에 따라 별도
+  - 일정: 등록(14:00) → 1부 체험 마당(14:20~15:00) → 2부 발표 마당(15:00~16:20)
   - 주관: 석산초등학교 / 거제양정초등학교 / 부곡초등학교 (확정)
   - 참고(작년 사이트): https://sites.google.com/view/sinhang1/%ED%99%88
     구글 사이트. 홈 버튼 5개(등록=구글설문, 리플렛·안내도=이미지, 산출물=학교별 드라이브·유튜브·학년별 패들렛, 후기=패들렛).
@@ -21,32 +27,33 @@
     C 우리집: 사용자 소유 '우리집 디자인 시스템'(하늘색 바탕, 굵은 남색 테두리, 노랑 한 덩어리, Jua+Nanum Gothic)
   사용자 요구 유지: 화려하지 않게, 글씨체·배경·디자인 요소에 신경. 배치도 크게, 장소↔활동 서로 연결.
 
-■ 페이지 구성 (해시 라우팅 #home #program #map #schools #join)
+■ 페이지 구성 (해시 라우팅 #home #program #schools #way) — '행사장 안내' 탭은 삭제함(체육관 한 곳에서만 진행)
   홈: 히어로(D-day 입장권), 메뉴 4개, 행사 흐름
   프로그램: 순서 카드 + 세부 활동. 활동 누르면 배치도 모달(핀 표시) → "크게 보기"로 행사장 페이지 이동
-  행사장 안내: 1층/2층 큰 배치도, 장소 누르면 그곳 활동 목록, 오시는 길
-  연구학교: 3개교 카드(주제, 산출물 링크) / 참여·등록: 등록(구글설문 예정), 질문 보드, 후기·설문
+  연구학교: 3개교 카드(주제, 산출물 링크) / 오시는 길: 구글 지도 삽입(막히는 호스팅에서는 그림 지도+구글 지도 링크로 대체), 내비 길안내 버튼, 주소 복사
+    (참여·등록 탭은 '오시는 길'로 바꿈. 등록·질문 보드·후기 기능은 삭제)
+    좌표 35.3214,129.0269 / 주소 경남 양산시 동면 금오16길 105 (공개 자료 기준, 확인 필요)
 
 ■ 코드 구조 (스크립트 안 데이터만 고치면 반영)
-  ROOMS   : 도면 장소. f=층, k=종류(reg/hall/class/booth/etc/fac), x,y,w,h = viewBox 1000x540 좌표
+  PLACE   : 행사 장소 이름(체육관). 배치도·위치 모달은 삭제함
   PARTS   : 프로그램 순서. r=장소 id 배열, subs=세부 활동(sc=학교번호 1석산 2양정 3부곡)
   SCHOOLS : 학교 카드. 디자인 시안은 :root[data-skin="a|b|c"] 토큰으로 전환, 선택은 localStorage 'rs-skin'
   '임시' 표시(.tmp) = 실제 정보로 바꿀 자리
 
 ■ 아직 임시(받아야 할 정보)
-  슬로건, 프로그램 시간표, 석산초 층별 배치도와 사용 장소, 공개수업·부스 목록,
-  학교별 연구 주제·산출물 링크, 부곡초 지역, 등록 설문 링크·마감일, 주소·주차 안내
+  슬로건, 학교별 부스 세부 내용,
+  학교별 연구 주제·산출물 링크, 부곡초 지역, 주차 안내
 
 ■ 다음 단계
   1) 시안 A/B/C 중 선택(또는 혼합) → 선택안만 남기고 다듬기
-  2) 실제 정보 반영  3) 배포 방식 결정(아티팩트 공유 링크 또는 GitHub Pages 등 정적 호스팅)
+  2) 실제 정보 반영  3) 배포: 구글 지도 삽입 때문에 일반 정적 호스팅(Netlify Drop, GitHub Pages 등) 사용. claude.ai 공유 링크에서는 지도 삽입이 막혀 그림 지도로 대체됨
 ============================================================
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Nanum+Pen+Script&family=Gothic+A1:wght@400;500;700;800&family=Orbit&family=Jua&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
-/* Layout: 홈·프로그램·행사장·연구학교·참여 5개 페이지. 같은 구조 위에 디자인 시안 3개(A 연구 노트 / B 디지털 오로라 / C 우리집)를 토큰으로 갈아 끼운다. */
+/* Layout: 홈·프로그램·연구학교·오시는 길 4개 페이지. 같은 구조 위에 디자인 시안 3개(A 연구 노트 / B 디지털 오로라 / C 우리집)를 토큰으로 갈아 끼운다. */
 
 /* ---------- A안 '연구 노트': 모눈 바탕, 종이 카드, 형광펜·손글씨·도장 ---------- */
 :root{
@@ -327,7 +334,7 @@ main{padding-block:30px 72px}
 [data-skin="c"] .t-dday{font-weight:400}
 
 /* 메뉴 카드 */
-.menu{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:26px}
+.menu{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:26px}
 .menu a{position:relative;display:flex;flex-direction:column;gap:10px;padding:24px 22px 20px;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease}
 .menu a:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover)}
 .menu .ic{width:50px;height:50px;border-radius:calc(var(--radius-sm) + 6px);display:grid;place-items:center;background:var(--cb);color:var(--ci)}
@@ -348,7 +355,7 @@ main{padding-block:30px 72px}
 .flow-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px 12px;flex-wrap:wrap;margin-bottom:18px}
 .flow h2{font-size:21px}
 .flow-head a{font-size:14px;font-weight:700;color:var(--primary);text-decoration:none}
-.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
 .steps li{position:relative;padding:26px 14px 0 0;min-width:0}
 .steps li::before{content:"";position:absolute;top:7px;left:0;right:0;border-top:2px solid var(--line)}
 .steps li::after{content:"";position:absolute;top:0;left:0;width:16px;height:16px;border-radius:50%;background:var(--surface-solid);border:2px solid var(--muted)}
@@ -391,8 +398,7 @@ main{padding-block:30px 72px}
 .subs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;border-top:1.5px dashed var(--line)}
 .subs li+li{border-top:1.5px dashed var(--line)}
 [data-skin="c"] .subs,[data-skin="c"] .subs li+li{border-top-width:2px;border-top-color:var(--grid)}
-.sub{display:grid;grid-template-columns:104px minmax(0,1fr) auto;gap:14px;align-items:center;width:100%;padding:12px 10px;background:none;border:0;text-align:left;cursor:pointer;border-radius:var(--radius-sm);color:inherit}
-.sub:hover{background:var(--surface-2)}
+.sub{display:grid;grid-template-columns:104px minmax(0,1fr);gap:14px;align-items:center;width:100%;padding:12px 10px;background:none;border:0;text-align:left;border-radius:var(--radius-sm);color:inherit}
 [data-skin="c"] .part.now .sub:hover{background:color-mix(in srgb,var(--surface-solid) 40%,transparent)}
 .sub-time{font-family:var(--font-num);font-size:14.5px;color:var(--muted)}
 .sub .txt{min-width:0}
@@ -472,30 +478,43 @@ main{padding-block:30px 72px}
 .docs a:hover{color:var(--primary)}
 .docs a span{color:var(--muted);font-size:13px;font-weight:400}
 
-/* ================= 참여 ================= */
-.join{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:16px;align-items:start}
-.join-col{display:flex;flex-direction:column;gap:16px;min-width:0}
-.reg{padding:30px;display:flex;flex-direction:column;gap:14px;position:relative}
-.reg h2{font-size:30px}
-.reg ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px}
-[data-skin="a"] .reg::before{content:"";position:absolute;top:-12px;right:28px;width:96px;height:26px;transform:rotate(4deg);background:repeating-linear-gradient(-45deg,color-mix(in srgb,var(--hl) 92%,transparent) 0 7px,color-mix(in srgb,var(--hl) 66%,transparent) 7px 14px)}
-[data-skin="b"] .reg{background:linear-gradient(150deg,color-mix(in srgb,var(--primary-soft) 80%,transparent),var(--surface))}
-[data-skin="c"] .reg{background:var(--hl);color:var(--on-hl)}
-[data-skin="c"] .reg ul{color:var(--on-hl-muted)}
-[data-skin="c"] .reg .btn-primary{background:var(--surface-solid);color:var(--ink)}
-.board{padding:26px;display:flex;flex-direction:column;gap:14px}
-.board h2{font-size:23px}
-.ask{display:flex;gap:8px}
-.ask input{flex:1;min-width:0;border:1px solid var(--line);background:var(--surface-solid);border-radius:999px;padding:11px 18px;font:inherit;font-size:16px;color:var(--ink)}
-[data-skin="c"] .ask input{border:2px solid var(--card-border)}
-.qlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
-.qlist li{display:flex;gap:10px;align-items:flex-start;padding:12px 2px;font-size:14.5px}
-.qlist li+li{border-top:1.5px dashed var(--line)}
-.qlist li p{flex:1;min-width:0}
-.like{border:1px solid var(--line);background:var(--surface-solid);border-radius:999px;padding:1px 11px;font-size:13px;cursor:pointer;flex:none;font-family:var(--font-num)}
-.after{padding:24px 26px;display:flex;flex-direction:column;gap:8px}
-.after h2{font-size:21px}
-.after p{color:var(--muted);font-size:14.5px}
+/* ================= 오시는 길 ================= */
+.way-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:16px;align-items:start}
+.map-card{display:flex;flex-direction:column;overflow:hidden;padding:0;text-decoration:none;color:inherit}
+.map-art{position:relative;display:block;aspect-ratio:16/10;background:var(--surface-2);border-bottom:var(--card-bw) solid var(--card-border)}
+.map-art svg{display:block;width:100%;height:100%}
+.map-fallback{position:absolute;inset:0;display:block}
+.map-art iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.map-art .road{stroke:var(--surface-solid);fill:none;stroke-linecap:round}
+.map-art .road-edge{stroke:var(--line);fill:none;stroke-linecap:round}
+.map-art .blk{fill:color-mix(in srgb,var(--surface-solid) 55%,var(--surface-2))}
+.map-art .park{fill:var(--s3-bg)}
+.map-art .sch{fill:var(--primary-soft);stroke:var(--primary);stroke-width:2.5}
+.map-art .gym{fill:var(--hl);stroke:var(--ink);stroke-width:2}
+.map-art .lbl-t{font-family:var(--font-display);font-weight:var(--display-weight);fill:var(--ink)}
+.map-art .lbl-s{font-family:var(--font-body);font-weight:700;fill:var(--muted)}
+.map-art .pinp{fill:var(--pin)}
+@media (prefers-reduced-motion:no-preference){ .map-art .pin-g{animation:bob 1.4s ease-in-out infinite} }
+.map-open{position:absolute;z-index:2;right:12px;bottom:12px;text-decoration:none;background:var(--surface-solid);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13.5px;font-weight:700;box-shadow:var(--shadow)}
+.map-open:hover{color:var(--primary)}
+.addr{padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:10px 14px;flex-wrap:wrap}
+.addr b{display:block;font-family:var(--font-display);font-weight:var(--display-weight);font-size:19px}
+.addr span{color:var(--muted);font-size:14.5px}
+.copy{border:1px solid var(--line);background:var(--surface-solid);color:var(--ink);border-radius:999px;padding:7px 15px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap}
+[data-skin="c"] .copy{border:2px solid var(--card-border)}
+.navi{padding:26px;display:flex;flex-direction:column;gap:14px}
+.navi h2{font-size:23px}
+.navi>p{color:var(--muted);font-size:14.5px;margin-top:-6px}
+.navi-list{display:flex;flex-direction:column;gap:10px}
+.navi-btn{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:var(--radius-sm);border:var(--card-bw) solid var(--card-border);background:var(--surface-solid);text-decoration:none;color:var(--ink);transition:transform .15s ease}
+.navi-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+.navi-btn .ico{flex:none;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-family:var(--font-display);font-weight:800;font-size:18px;background:var(--cb);color:var(--ci)}
+.navi-btn b{display:block;font-size:16px;line-height:1.35}
+.navi-btn small{display:block;color:var(--muted);font-size:13px}
+.navi-btn .arr{margin-left:auto;color:var(--muted);font-weight:700}
+.notes{margin:4px 0 0;padding:16px 18px;list-style:none;border-radius:var(--radius-sm);background:var(--surface-2);display:flex;flex-direction:column;gap:6px;font-size:14.5px}
+.notes li{display:flex;gap:8px}
+.notes li::before{content:"•";color:var(--pin);font-weight:800}
 
 /* ================= 모달 ================= */
 .modal{position:fixed;inset:0;z-index:50;background:var(--overlay);display:grid;place-items:center;padding:16px}
@@ -525,7 +544,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-betw
 @media (max-width:980px){
   .menu{grid-template-columns:repeat(2,minmax(0,1fr))}
   .schools{grid-template-columns:minmax(0,1fr)}
-  .join{grid-template-columns:minmax(0,1fr)}
+  .way-grid{grid-template-columns:minmax(0,1fr)}
   .hero{grid-template-columns:minmax(0,1fr);padding:40px 34px}
   [data-skin="a"] .hero{padding-left:72px}
   [data-skin="a"] .hero{background-image:linear-gradient(90deg,transparent 40px,color-mix(in srgb,var(--pin) 45%,transparent) 40px,color-mix(in srgb,var(--pin) 45%,transparent) 42px,transparent 42px),repeating-linear-gradient(to bottom,transparent 0,transparent 39px,var(--grid) 39px,var(--grid) 40px)}
@@ -556,7 +575,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-betw
   .sub{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"time where" "txt txt";gap:2px 10px;padding:12px 4px}
   .sub-time{grid-area:time} .sub .txt{grid-area:txt} .sub .where{grid-area:where}
   .way{grid-template-columns:minmax(0,1fr)}
-  .tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--surface-solid);border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px))}
+  .tabbar{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--surface-solid);border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px))}
   [data-skin="c"] .tabbar{border-top:2.5px solid var(--card-border)}
   .tabbar a{display:flex;flex-direction:column;align-items:center;gap:2px;min-height:48px;justify-content:center;text-decoration:none;font-size:12px;font-weight:600;color:var(--muted)}
   .tabbar a[aria-current="page"]{color:var(--primary);font-weight:800}
@@ -588,9 +607,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-betw
     <nav class="nav" aria-label="주요 메뉴">
       <a href="#home" data-p="home">홈</a>
       <a href="#program" data-p="program">프로그램</a>
-      <a href="#map" data-p="map">행사장 안내</a>
       <a href="#schools" data-p="schools">연구학교</a>
-      <a href="#join" data-p="join">참여·등록</a>
+      <a href="#way" data-p="way">오시는 길</a>
     </nav>
   </div></div>
 </header>
@@ -659,8 +677,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-betw
           <div class="t-top"><span class="t-label" id="ddLabel">행사까지</span><b class="t-dday num" id="dday">D-29</b></div>
           <div class="t-perf"></div>
           <dl class="t-rows">
-            <div><dt>일시</dt><dd class="num">2026. 11. 11.(수)<br>14:00 – 17:00</dd></div>
-            <div><dt>장소</dt><dd>양산 석산초등학교</dd></div>
+            <div><dt>일시</dt><dd class="num">2026. 11. 11.(수)<br>14:20 – 16:20</dd></div>
+            <div><dt>장소</dt><dd>양산 석산초등학교 체육관</dd></div>
           </dl>
         </div>
       </div>
@@ -671,24 +689,20 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-betw
   <nav class="menu" aria-label="바로가기">
     <a class="card" href="#program" style="--cc:var(--s1);--cb:var(--s1-bg);--ci:var(--s1-ink)">
       <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-      <h2>프로그램</h2><p>시간대별 순서와 공개수업, 체험 부스를 확인해요.</p><span class="go">일정 보기 →</span>
-    </a>
-    <a class="card" href="#map" style="--cc:var(--s2);--cb:var(--s2-bg);--ci:var(--s2-ink)">
-      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
-      <h2>행사장 안내</h2><p>배치도에서 장소를 누르면 그곳의 활동이 나와요.</p><span class="go">배치도 보기 →</span>
+      <h2>프로그램</h2><p>시간대별 순서와 체험 부스, 발표를 확인해요.</p><span class="go">일정 보기 →</span>
     </a>
     <a class="card" href="#schools" style="--cc:var(--s3);--cb:var(--s3-bg);--ci:var(--s3-ink)">
       <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M3 10l9-6 9 6"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span>
       <h2>연구학교</h2><p>세 학교의 연구 주제와 운영 산출물을 모았어요.</p><span class="go">자료 보기 →</span>
     </a>
-    <a class="card" href="#join" style="--cc:var(--hl);--cb:var(--k-reg);--ci:var(--tmp)">
-      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 11h6M9 15h4"/></svg></span>
-      <h2>참여·등록</h2><p>참가 등록, 질문 남기기, 행사 후기를 남겨요.</p><span class="go">등록하기 →</span>
+    <a class="card" href="#way" style="--cc:var(--hl);--cb:var(--k-reg);--ci:var(--tmp)">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+      <h2>오시는 길</h2><p>학교 위치와 내비게이션 길 안내 버튼을 모았어요.</p><span class="go">길 찾기 →</span>
     </a>
   </nav>
 
   <div class="card flow">
-    <div class="flow-head"><h2>행사 흐름 한눈에 <span class="tmp">시간표 임시</span></h2><a href="#program">자세히 보기 →</a></div>
+    <div class="flow-head"><h2>행사 흐름 한눈에</h2><a href="#program">자세히 보기 →</a></div>
     <ol class="steps" id="steps"></ol>
   </div>
 </section>
@@ -696,76 +710,58 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-betw
 <!-- ========== 프로그램 ========== -->
 <section data-page="program" hidden>
   <div class="page-head">
-    <div><h1><span class="mark">프로그램</span></h1><p>11월 11일(수) 14:00–17:00 · 양산 석산초등학교 <span class="tmp">시간표 임시</span></p></div>
-    <div class="seg" role="group" aria-label="시간 기준">
-      <button type="button" data-sim="0" aria-pressed="true">지금 기준</button>
-      <button type="button" data-sim="1" aria-pressed="false">당일 15:10 미리보기</button>
-    </div>
+    <div><h1><span class="mark">프로그램</span></h1><p>11월 11일(수) 14:20–16:20 (등록 14:00부터) · 양산 석산초등학교 체육관</p></div>
   </div>
-  <p class="tip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>활동을 누르면 배치도에서 진행 장소를 바로 보여 드려요.</p>
   <div class="parts" id="parts"></div>
-</section>
-
-<!-- ========== 행사장 안내 ========== -->
-<section data-page="map" hidden>
-  <div class="page-head">
-    <div><h1><span class="mark">행사장 안내</span></h1><p>장소를 누르면 그곳에서 열리는 활동을 볼 수 있어요. <span class="tmp">도면 임시</span></p></div>
-  </div>
-  <div class="map-layout">
-    <div class="card map-card">
-      <div class="map-bar">
-        <div class="floor-tabs" id="floorTabs" role="group" aria-label="층 선택">
-          <button type="button" data-f="1" aria-pressed="true">1층</button>
-          <button type="button" data-f="2" aria-pressed="false">2층</button>
-        </div>
-        <div class="legend"><span><i style="background:var(--k-reg)"></i>등록</span><span><i style="background:var(--k-hall)"></i>보고</span><span><i style="background:var(--k-class)"></i>공개수업</span><span><i style="background:var(--k-booth)"></i>체험·전시</span></div>
-      </div>
-      <div class="map-scroll" id="bigMap"></div>
-    </div>
-    <aside class="card panel" id="panel" aria-live="polite"></aside>
-  </div>
-  <div class="card way">
-    <div><h2>오시는 길</h2><p>양산 석산초등학교 · 주소 확인 후 입력 <span class="tmp">임시</span><br>주차: 운동장 임시 주차장 <span class="tmp">임시</span> · 등록: 본관 1층 중앙 현관</p></div>
-    <div class="btn-row">
-      <a class="btn btn-soft" target="_blank" rel="noopener" href="https://map.naver.com/p/search/%EC%96%91%EC%82%B0%20%EC%84%9D%EC%82%B0%EC%B4%88%EB%93%B1%ED%95%99%EA%B5%90">네이버 지도</a>
-      <a class="btn btn-soft" target="_blank" rel="noopener" href="https://map.kakao.com/?q=%EC%96%91%EC%82%B0%20%EC%84%9D%EC%82%B0%EC%B4%88%EB%93%B1%ED%95%99%EA%B5%90">카카오맵</a>
-    </div>
-  </div>
 </section>
 
 <!-- ========== 연구학교 ========== -->
 <section data-page="schools" hidden>
   <div class="page-head">
-    <div><h1><span class="mark">연구학교</span></h1><p>세 학교가 2년 동안 실천한 디지털 기반 학생맞춤교육 <span class="tmp">주제·자료 임시</span></p></div>
+    <div><h1><span class="mark">연구학교</span></h1><p>세 학교가 2년 동안 실천한 디지털 기반 학생맞춤교육 <span class="tmp">자료 임시</span></p></div>
   </div>
   <div class="schools" id="schoolList"></div>
 </section>
 
-<!-- ========== 참여·등록 ========== -->
-<section data-page="join" hidden>
+<!-- ========== 오시는 길 ========== -->
+<section data-page="way" hidden>
   <div class="page-head">
-    <div><h1><span class="mark">참여·등록</span></h1><p>참가 등록부터 행사 후기까지</p></div>
+    <div><h1><span class="mark">오시는 길</span></h1><p>양산 석산초등학교 체육관 · 11월 11일(수) 14:00부터 등록</p></div>
   </div>
-  <div class="join">
-    <div class="join-col">
-      <div class="card reg">
-        <h2>참가 등록</h2>
-        <ul><li>신청 마감: 11. 4.(수) <span class="tmp">임시</span></li><li>등록은 구글 설문으로 받습니다.</li><li>당일 13:30부터 1층 중앙 현관에서 이름표를 받아 가세요.</li></ul>
-        <a class="btn btn-primary" href="#join" style="align-self:flex-start">등록 설문 열기 →</a>
+  <div class="way-grid">
+    <div class="card map-card">
+      <div class="map-art" id="gmapBox">
+        <a class="map-fallback" href="https://www.google.com/maps/search/?api=1&amp;query=%EA%B2%BD%EB%82%A8%20%EC%96%91%EC%82%B0%EC%8B%9C%20%EB%8F%99%EB%A9%B4%20%EA%B8%88%EC%98%A416%EA%B8%B8%20105" target="_blank" rel="noopener" aria-label="구글 지도에서 석산초등학교 위치 보기"><svg viewBox="0 0 640 400" aria-hidden="true">
+            <g class="blk"><rect x="20" y="20" width="170" height="120" rx="10"/><rect x="230" y="20" width="160" height="70" rx="10"/><rect x="430" y="20" width="190" height="120" rx="10"/><rect x="20" y="180" width="170" height="200" rx="10"/><rect x="430" y="180" width="190" height="90" rx="10"/><rect x="430" y="310" width="190" height="70" rx="10"/></g>
+            <rect class="park" x="230" y="300" width="160" height="80" rx="10"/>
+            <g class="road-edge" stroke-width="30"><path d="M0 160 H640"/><path d="M210 0 V400"/><path d="M410 0 V400"/><path d="M210 290 H410"/></g>
+            <g class="road" stroke-width="26"><path d="M0 160 H640"/><path d="M210 0 V400"/><path d="M410 0 V400"/><path d="M210 290 H410"/></g>
+            <rect class="sch" x="236" y="104" width="148" height="172" rx="12"/>
+            <rect class="gym" x="252" y="186" width="70" height="44" rx="6"/>
+            <text class="lbl-s" x="287" y="213" text-anchor="middle" font-size="13">체육관</text>
+            <text class="lbl-t" x="310" y="134" text-anchor="middle" font-size="19">석산초등학교</text>
+            <g class="pin-g"><g transform="translate(269 136)"><path class="pinp" d="M18 50 C18 50 0 30 0 18 A18 18 0 0 1 36 18 C36 30 18 50 18 50z"/><circle cx="18" cy="18" r="7" fill="#fff"/></g></g>
+          </svg></a>
+        <a class="map-open" href="https://www.google.com/maps/search/?api=1&amp;query=%EA%B2%BD%EB%82%A8%20%EC%96%91%EC%82%B0%EC%8B%9C%20%EB%8F%99%EB%A9%B4%20%EA%B8%88%EC%98%A416%EA%B8%B8%20105" target="_blank" rel="noopener">구글 지도에서 크게 보기 ↗</a>
       </div>
-      <div class="card after">
-        <h2>행사 후기 · 만족도 설문</h2>
-        <p>행사 당일 16:40, 닫는 마당에서 열려요.</p>
+      <div class="addr">
+        <div><b>석산초등학교 체육관</b><span id="addrText">경남 양산시 동면 금오16길 105</span></div>
+        <button class="copy" type="button" id="copyAddr">주소 복사</button>
       </div>
     </div>
-    <div class="card board">
-      <h2>발표자에게 질문하기</h2>
-      <form class="ask" id="askForm">
-        <label class="sr" for="askInput">질문 입력</label>
-        <input id="askInput" type="text" maxlength="80" placeholder="궁금한 점을 남겨 주세요" autocomplete="off">
-        <button class="btn btn-primary" type="submit">보내기</button>
-      </form>
-      <ul class="qlist" id="qlist"></ul>
+    <div class="card navi">
+      <h2>내비게이션으로 길 안내</h2>
+      <p>휴대폰에서 누르면 지도 앱이 열리고 석산초등학교까지 길을 안내해요.</p>
+      <div class="navi-list">
+        <a class="navi-btn" href="https://map.kakao.com/link/to/%EC%84%9D%EC%82%B0%EC%B4%88%EB%93%B1%ED%95%99%EA%B5%90,35.3214,129.0269" target="_blank" rel="noopener" style="--cb:var(--k-reg);--ci:var(--tmp)"><span class="ico">K</span><span><b>카카오맵 길찾기</b><small>카카오맵·카카오내비</small></span><span class="arr">↗</span></a>
+        <a class="navi-btn" href="https://map.naver.com/p/search/%EC%96%91%EC%82%B0%20%EC%84%9D%EC%82%B0%EC%B4%88%EB%93%B1%ED%95%99%EA%B5%90" target="_blank" rel="noopener" style="--cb:var(--s3-bg);--ci:var(--s3-ink)"><span class="ico">N</span><span><b>네이버 지도</b><small>검색 결과에서 ‘길찾기’를 눌러 주세요</small></span><span class="arr">↗</span></a>
+        <a class="navi-btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=%EA%B2%BD%EB%82%A8%20%EC%96%91%EC%82%B0%EC%8B%9C%20%EB%8F%99%EB%A9%B4%20%EA%B8%88%EC%98%A416%EA%B8%B8%20105" target="_blank" rel="noopener" style="--cb:var(--s1-bg);--ci:var(--s1-ink)"><span class="ico">G</span><span><b>구글 지도 길찾기</b><small>Google Maps</small></span><span class="arr">↗</span></a>
+      </div>
+      <ul class="notes">
+        <li>14:00 이전에는 학교 운동장으로 들어올 수 없어요.</li>
+        <li>주차: 운동장 <span class="tmp">임시</span></li>
+        <li>등록은 체육관에서 해요.</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -781,25 +777,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-betw
 <nav class="tabbar" aria-label="빠른 이동">
   <a href="#home" data-p="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>홈</a>
   <a href="#program" data-p="program"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>프로그램</a>
-  <a href="#map" data-p="map"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>행사장</a>
   <a href="#schools" data-p="schools"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10l9-6 9 6"/><path d="M5 10v10h14V10"/></svg>연구학교</a>
-  <a href="#join" data-p="join"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 11h6M9 15h4"/></svg>참여</a>
+  <a href="#way" data-p="way"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>오시는 길</a>
 </nav>
 
 
 
-<div class="modal" id="modal" hidden>
-  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="mTitle">
-    <div class="modal-head">
-      <div><h2 id="mTitle"></h2><p id="mSub"></p></div>
-      <button class="x" type="button" id="mClose" aria-label="닫기">×</button>
-    </div>
-    <div class="where-line" id="mWhere"></div>
-    <div class="floor-tabs" id="mFloors" role="group" aria-label="층 선택"></div>
-    <div class="map-scroll" id="mMap"></div>
-    <div class="btn-row"><button class="btn btn-primary" type="button" id="mGo">행사장 안내에서 크게 보기</button></div>
-  </div>
-</div>
 
 <script>
 (function(){
@@ -810,174 +793,49 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-betw
   var PIN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>';
   var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
 
-  /* ---------- 장소 (임시 도면, viewBox 1000 x 540) ---------- */
-  var ROOMS={
-    hall:{f:1,n:'강당',s:'보고',k:'hall',x:40,y:50,w:320,h:180},
-    lib:{f:1,n:'도서관',s:'체험 부스',k:'booth',x:370,y:50,w:210,h:180},
-    multi:{f:1,n:'다목적실',s:'산출물 전시',k:'booth',x:590,y:50,w:190,h:180},
-    wc1:{f:1,n:'화장실',k:'fac',x:790,y:50,w:70,h:180},
-    st1a:{f:1,n:'계단',k:'fac',x:870,y:50,w:90,h:180},
-    off:{f:1,n:'교무실',k:'etc',x:40,y:310,w:170,h:150},
-    adm:{f:1,n:'행정실',k:'etc',x:220,y:310,w:150,h:150},
-    reg:{f:1,n:'중앙 현관',s:'등록',k:'reg',x:380,y:310,w:190,h:150},
-    nurse:{f:1,n:'보건실',k:'etc',x:580,y:310,w:140,h:150},
-    rest:{f:1,n:'휴게 공간',s:'다과',k:'booth',x:730,y:310,w:130,h:150},
-    st1b:{f:1,n:'계단',k:'fac',x:870,y:310,w:90,h:150},
-    c34:{f:2,n:'3-4',s:'공개수업',k:'class',x:40,y:50,w:170,h:180},
-    c51:{f:2,n:'5-1',s:'공개수업',k:'class',x:220,y:50,w:170,h:180},
-    c52:{f:2,n:'5-2',s:'공개수업',k:'class',x:400,y:50,w:170,h:180},
-    c61:{f:2,n:'6-1',s:'공개수업',k:'class',x:580,y:50,w:170,h:180},
-    wc2:{f:2,n:'화장실',k:'fac',x:760,y:50,w:100,h:180},
-    st2a:{f:2,n:'계단',k:'fac',x:870,y:50,w:90,h:180},
-    sci:{f:2,n:'과학실',s:'체험 부스',k:'booth',x:40,y:310,w:250,h:150},
-    comp:{f:2,n:'컴퓨터실',s:'체험 부스',k:'booth',x:300,y:310,w:230,h:150},
-    meet:{f:2,n:'협의실',s:'수업 나눔',k:'class',x:540,y:310,w:180,h:150},
-    lab:{f:2,n:'교사 연구실',k:'etc',x:730,y:310,w:130,h:150},
-    st2b:{f:2,n:'계단',k:'fac',x:870,y:310,w:90,h:150}
-  };
-  var KCOL={reg:'var(--k-reg)',hall:'var(--k-hall)',class:'var(--k-class)',booth:'var(--k-booth)'};
+  var PLACE='체육관';
 
-  /* ---------- 프로그램 (임시) ---------- */
+  /* ---------- 프로그램 ---------- */
   var SN={1:'석산초',2:'거제양정초',3:'부곡초'};
   var chip=function(sc){return '<span class="chip" style="--cb:var(--s'+sc+'-bg);--ci:var(--s'+sc+'-ink)">'+SN[sc]+'</span>'};
   var PARTS=[
-    {id:'p0',s:'13:30',e:'14:00',t:'등록 및 사전 둘러보기',d:'이름표와 리플렛을 받고, 산출물 전시를 먼저 둘러볼 수 있어요.',r:['reg','multi'],subs:[]},
-    {id:'p1',s:'14:00',e:'14:40',t:'1부 · 여는 마당',d:'개회와 세 연구학교의 운영 보고',r:['hall'],subs:[
-      {t:'개회 및 인사',m:'14:00–14:10',r:['hall']},
-      {t:'석산초 운영 보고',m:'14:10–14:20',sc:1,r:['hall']},
-      {t:'거제양정초 운영 보고',m:'14:20–14:30',sc:2,r:['hall']},
-      {t:'부곡초 운영 보고',m:'14:30–14:40',sc:3,r:['hall']}]},
-    {id:'p2',s:'14:50',e:'15:40',t:'2부 · 수업 마당',d:'석산초 학년별 공개수업과 수업 나눔 협의',r:['c34','c51','c52','c61','meet'],subs:[
-      {t:'3학년 영어 · AI 말하기 친구와 주말 계획 이야기하기',m:'14:50–15:30',sc:1,r:['c34']},
-      {t:'5학년 수학 · 분수의 나눗셈, 내 속도로 풀기',m:'14:50–15:30',sc:1,r:['c51']},
-      {t:'5학년 국어 · AI 피드백으로 고쳐 쓰는 설명문',m:'14:50–15:30',sc:1,r:['c52']},
-      {t:'6학년 과학 · 센서 데이터로 탐구하는 날씨',m:'14:50–15:30',sc:1,r:['c61']},
-      {t:'수업 나눔 협의회',m:'15:30–15:40',r:['meet']}]},
-    {id:'p3',s:'15:50',e:'16:40',t:'3부 · 체험 마당',d:'학교별 디지털 수업 체험 부스와 산출물 전시',r:['lib','comp','sci','multi','rest'],subs:[
-      {t:'AI 코스웨어 맞춤 학습 체험',m:'15:50–16:40',sc:1,r:['comp']},
-      {t:'데이터 기반 피드백 체험',m:'15:50–16:40',sc:2,r:['lib']},
-      {t:'디지털 센서 협력 탐구',m:'15:50–16:40',sc:3,r:['sci']},
-      {t:'세 학교 산출물 전시',m:'종일',r:['multi']},
-      {t:'다과와 자유 교류',m:'15:50–16:40',r:['rest']}]},
-    {id:'p4',s:'16:40',e:'17:00',t:'닫는 마당',d:'소감 나누기와 만족도 설문',r:['hall'],subs:[]}
+    {id:'p0',s:'14:00',e:'14:20',t:'등록',d:'등록하고 자료집을 받아요. 메인 화면에서 세 학교 소개 영상이 이어서 나와요.',subs:[]},
+    {id:'p1',s:'14:20',e:'15:00',t:'1부 · 체험 마당',d:'세 학교의 전시·체험 부스를 자유롭게 둘러봐요.',subs:[
+      {t:'석산초 메인 부스 · 연구학교 전시와 체험',m:'14:20–15:00',sc:1},
+      {t:'거제양정초 메인 부스 · 연구학교 전시와 체험',m:'14:20–15:00',sc:2},
+      {t:'부곡초 메인 부스 · 연구학교 전시와 체험',m:'14:20–15:00',sc:3},
+      {t:'보조 부스 · 자율 디지털 활동 체험',m:'14:20–15:00'},
+      {t:'세 학교 소개 영상 (메인 화면 반복 상영)',m:'14:00–15:00'}]},
+    {id:'p2',s:'15:00',e:'16:20',t:'2부 · 발표 마당',d:'개회, 학교별 운영 결과 발표, 큐레이팅 토크, 질의응답',subs:[
+      {t:'개회 · 국민의례 · 내빈 소개 · 환영 인사 · 축사',m:'15:00–15:20'},
+      {t:'운영 결과 발표 ① 거제양정초 (7분)',m:'15:20–15:45',sc:2},
+      {t:'운영 결과 발표 ② 석산초 (7분)',m:'15:20–15:45',sc:1},
+      {t:'운영 결과 발표 ③ 부곡초 (7분)',m:'15:20–15:45',sc:3},
+      {t:'큐레이팅 · 학교별 선생님 인터뷰 (토크)',m:'15:45–16:00'},
+      {t:'질의응답 · 소감 나눔 · 지도 조언 · 폐회',m:'16:00–16:20'}]}
   ];
-  var ITEMS={};
-  PARTS.forEach(function(p){ITEMS[p.id]={t:p.t,m:p.s+'–'+p.e,r:p.r}; p.subs.forEach(function(s,i){s.id=p.id+'-'+i;s.part=p;ITEMS[s.id]=s})});
-  function roomActs(rid){
-    var out=[];
-    PARTS.forEach(function(p){
-      var hit=p.subs.filter(function(s){return s.r.indexOf(rid)>-1});
-      if(hit.length) hit.forEach(function(s){out.push({m:s.m,t:s.t,p:p})});
-      else if(p.r.indexOf(rid)>-1) out.push({m:p.s+'–'+p.e,t:p.t,p:p});
-    });
-    return out;
-  }
   function partState(p){var n=now();if(n>=at(p.e))return 'done';if(n>=at(p.s))return 'now';return ''}
-  function where(rs){return rs.map(function(r){return ROOMS[r].f+'층 '+ROOMS[r].n}).join(' · ')}
 
-  /* ---------- 배치도 ---------- */
-  function mapSVG(floor,sel,interactive){
-    var rx=root.dataset.skin==='a'?4:16;
-    var h='<svg viewBox="0 0 1000 540" role="img" aria-label="'+floor+'층 배치도">';
-    h+='<rect class="corr" x="40" y="244" width="920" height="52" rx="'+rx+'"/><text class="corr-t" x="500" y="276" text-anchor="middle">복도</text>';
-    h+='<g class="north" transform="translate(965 16)"><path d="M0 0 L7 18 L0 14 L-7 18z"/><text x="0" y="34" text-anchor="middle">N</text></g>';
-    var pins='';
-    Object.keys(ROOMS).forEach(function(id){
-      var r=ROOMS[id]; if(r.f!==floor)return;
-      var ev=r.k!=='fac'&&r.k!=='etc', isSel=!!(sel&&sel.indexOf(id)>-1);
-      var cls='r k-'+r.k+(ev&&interactive?' ev':'')+(isSel?' sel':'')+(sel&&sel.length&&!isSel&&ev&&!interactive?' dim':'');
-      var cx=r.x+r.w/2, cy=r.y+r.h/2;
-      h+='<g class="'+cls+'" data-r="'+id+'"'+(ev&&interactive?' tabindex="0" role="button" aria-label="'+esc(r.n)+'"':'')+'>';
-      h+='<rect x="'+r.x+'" y="'+r.y+'" width="'+r.w+'" height="'+r.h+'" rx="'+rx+'"/>';
-      var big=r.k==='fac'?15:(r.w<150?22:28);
-      h+='<text x="'+cx+'" y="'+(r.s?cy-2:cy+8)+'" text-anchor="middle" font-size="'+big+'">'+esc(r.n)+'</text>';
-      if(r.s) h+='<text class="rs" x="'+cx+'" y="'+(cy+24)+'" text-anchor="middle">'+esc(r.s)+'</text>';
-      h+='</g>';
-      if(isSel) pins+='<g class="pin"><g transform="translate('+(cx-18)+' '+(r.y-34)+')"><path d="M18 46 C18 46 0 28 0 17 A18 18 0 0 1 36 17 C36 28 18 46 18 46z"/><circle cx="18" cy="17" r="7"/></g></g>';
-    });
-    if(floor===1) h+='<text class="gate" x="475" y="512" text-anchor="middle">▲ 정문 입구</text>';
-    return h+pins+'</svg>';
-  }
-
-  var mapFloor=1, mapSel=null;
-  function renderBigMap(){
-    document.getElementById('bigMap').innerHTML=mapSVG(mapFloor,mapSel?[mapSel]:null,true);
-    document.querySelectorAll('#floorTabs button').forEach(function(b){b.setAttribute('aria-pressed',String(+b.dataset.f===mapFloor))});
-    renderPanel();
-  }
-  function renderPanel(){
-    var p=document.getElementById('panel');
-    if(!mapSel){
-      var ids=Object.keys(ROOMS).filter(function(id){return ROOMS[id].f===mapFloor&&roomActs(id).length});
-      p.innerHTML='<p class="fl">'+mapFloor+'층</p><h2>장소를 눌러 보세요</h2><p class="empty">색이 칠해진 곳을 누르면 그곳에서 열리는 활동과 시간이 나와요.</p>'+
-        '<ul class="acts">'+ids.map(function(id){return '<li data-pick="'+id+'"><b>'+esc(ROOMS[id].n)+'</b><small>'+esc(ROOMS[id].s||'')+' · 활동 '+roomActs(id).length+'개</small></li>'}).join('')+'</ul>';
-      return;
-    }
-    var r=ROOMS[mapSel], acts=roomActs(mapSel);
-    p.innerHTML='<p class="fl"><span class="sw" style="background:'+KCOL[r.k]+'"></span>'+r.f+'층 · '+esc(r.s||'')+'</p><h2>'+esc(r.n)+'</h2>'+
-      (acts.length?'<ul class="acts">'+acts.map(function(a){var st=partState(a.p);return '<li'+(st==='done'?' style="opacity:.55"':'')+'><span class="tm num">'+a.m+'</span>'+(st==='now'?'<span class="nowtag">진행 중</span>':'')+'<b>'+esc(a.t)+'</b><small>'+esc(a.p.t)+'</small></li>'}).join('')+'</ul>':'<p class="empty">이 장소에서 열리는 활동이 없어요.</p>')+
-      '<button class="btn btn-soft" type="button" id="clearSel" style="align-self:flex-start">전체 보기</button>';
-  }
-  function pickRoom(id){if(!ROOMS[id])return;mapSel=id;mapFloor=ROOMS[id].f;renderBigMap()}
-  document.getElementById('floorTabs').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;mapFloor=+b.dataset.f;mapSel=null;renderBigMap()});
-  document.getElementById('bigMap').addEventListener('click',function(e){var g=e.target.closest('.r.ev');if(g)pickRoom(g.dataset.r)});
-  document.getElementById('bigMap').addEventListener('keydown',function(e){var g=e.target.closest('.r.ev');if(g&&(e.key==='Enter'||e.key===' ')){e.preventDefault();pickRoom(g.dataset.r)}});
-  document.getElementById('panel').addEventListener('click',function(e){
-    if(e.target.id==='clearSel'){mapSel=null;renderBigMap();return}
-    var li=e.target.closest('[data-pick]'); if(li)pickRoom(li.dataset.pick);
-  });
-
-  /* ---------- 프로그램 ---------- */
   function renderParts(){
     document.getElementById('parts').innerHTML=PARTS.map(function(p){
       var st=partState(p);
       var subs=p.subs.length?'<ul class="subs">'+p.subs.map(function(s){
-        return '<li><button class="sub" type="button" data-item="'+s.id+'"><span class="sub-time num">'+s.m+'</span><span class="txt"><b>'+esc(s.t)+'</b>'+(s.sc?chip(s.sc):'')+'</span><span class="where">'+PIN+esc(where(s.r))+'</span></button></li>';
+        return '<li><div class="sub"><span class="sub-time num">'+s.m+'</span><span class="txt"><b>'+esc(s.t)+'</b>'+(s.sc?chip(s.sc):'')+'</span></div></li>';
       }).join('')+'</ul>':'';
       return '<article class="card part '+st+'"><div class="part-time num">'+p.s+'<small>– '+p.e+'</small>'+(st==='now'?'<span class="lbl">진행 중</span>':'')+'</div>'+
-        '<div class="part-main"><div class="part-top"><div><h2>'+esc(p.t)+'</h2><p class="desc">'+esc(p.d)+'</p></div>'+
-        '<button class="loc" type="button" data-item="'+p.id+'">'+PIN+'위치 보기</button></div>'+subs+'</div></article>';
+        '<div class="part-main"><div class="part-top"><div><h2>'+esc(p.t)+'</h2><p class="desc">'+esc(p.d)+'</p></div></div>'+subs+'</div></article>';
     }).join('');
   }
-  document.getElementById('parts').addEventListener('click',function(e){var b=e.target.closest('[data-item]');if(b)openModal(b.dataset.item)});
   document.querySelectorAll('[data-sim]').forEach(function(b){b.onclick=function(){
     sim=b.dataset.sim==='1';
     document.querySelectorAll('[data-sim]').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});
     renderParts();renderSteps();
   }});
 
-  /* ---------- 위치 모달 ---------- */
-  var modal=document.getElementById('modal'), mItem=null, mFloor=1, lastFocus=null;
-  function openModal(id){
-    var it=ITEMS[id]; if(!it)return; mItem=it; lastFocus=document.activeElement;
-    var floors=[]; it.r.forEach(function(r){if(floors.indexOf(ROOMS[r].f)<0)floors.push(ROOMS[r].f)}); floors.sort();
-    mFloor=floors[0];
-    document.getElementById('mTitle').textContent=it.t;
-    document.getElementById('mSub').textContent=it.m+(it.part?' · '+it.part.t:'');
-    document.getElementById('mWhere').innerHTML=PIN+esc(where(it.r));
-    var ft=document.getElementById('mFloors');
-    ft.hidden=floors.length<2;
-    ft.innerHTML=floors.map(function(f){var c=it.r.filter(function(r){return ROOMS[r].f===f}).length;return '<button type="button" data-f="'+f+'">'+f+'층<span class="cnt">'+c+'</span></button>'}).join('');
-    drawModalMap(); modal.hidden=false; document.getElementById('mClose').focus();
-  }
-  function drawModalMap(){
-    document.getElementById('mMap').innerHTML=mapSVG(mFloor,mItem.r,false);
-    document.querySelectorAll('#mFloors button').forEach(function(b){b.setAttribute('aria-pressed',String(+b.dataset.f===mFloor))});
-  }
-  function closeModal(){modal.hidden=true;if(lastFocus)lastFocus.focus()}
-  document.getElementById('mFloors').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;mFloor=+b.dataset.f;drawModalMap()});
-  document.getElementById('mClose').onclick=closeModal;
-  modal.addEventListener('click',function(e){if(e.target===modal)closeModal()});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)closeModal()});
-  document.getElementById('mGo').onclick=function(){
-    var first=mItem.r.filter(function(r){return ROOMS[r].f===mFloor})[0]||mItem.r[0];
-    modal.hidden=true; mapSel=first; mapFloor=ROOMS[first].f; go('map');
-  };
-
   /* ---------- 홈 ---------- */
   function renderSteps(){
     document.getElementById('steps').innerHTML=PARTS.map(function(p){
-      return '<li class="'+(partState(p)==='now'?'now':'')+'"><div class="t num">'+p.s+'</div><div class="n">'+esc(p.t.replace(' · ',' '))+'</div><div class="p">'+esc(ROOMS[p.r[0]].n)+(p.r.length>1?' 외':'')+'</div></li>';
+      return '<li class="'+(partState(p)==='now'?'now':'')+'"><div class="t num">'+p.s+'</div><div class="n">'+esc(p.t.replace(' · ',' '))+'</div><div class="p">'+PLACE+'</div></li>';
     }).join('');
   }
   function dday(){
@@ -999,9 +857,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-betw
 
   /* ---------- 연구학교 ---------- */
   var SCHOOLS=[
-    {sc:1,n:'석산초등학교',e:'석',reg:'양산 · 개최교',topic:'AI 코스웨어로 설계하는 한 명 한 명의 학습 경로'},
-    {sc:2,n:'거제양정초등학교',e:'양',reg:'거제',topic:'데이터 기반 피드백으로 키우는 스스로 배우는 힘'},
-    {sc:3,n:'부곡초등학교',e:'부',reg:'지역 입력 예정',topic:'하이터치·하이테크가 만나는 협력 수업'}
+    {sc:1,n:'석산초등학교',e:'석',reg:'양산 · 개최교',topic:'AI 디지털 기반 SUCCESS 모델 운영을 통한 사회정서역량 강화'},
+    {sc:2,n:'거제양정초등학교',e:'양',reg:'거제',topic:'보듬(B.O.D.M.) 성장모델의 개발·적용을 통한 포용적 미래역량 기르기'},
+    {sc:3,n:'부곡초등학교',e:'부',reg:'지역 입력 예정',topic:'AI·디지털 기반 교육자료 등을 활용한 교수·학습 혁신 및 학생 역량 강화 지원방안 연구'}
   ];
   document.getElementById('schoolList').innerHTML=SCHOOLS.map(function(s){
     var v='--c:var(--s'+s.sc+');--cb:var(--s'+s.sc+'-bg);--ci:var(--s'+s.sc+'-ink)';
@@ -1010,32 +868,37 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-betw
       '<ul class="docs">'+['운영 보고서','수업 매거진','교수·학습 과정안','운영 보고 영상'].map(function(d){return '<li><a href="#schools">'+d+'<span>준비 중 →</span></a></li>'}).join('')+'</ul></article>';
   }).join('');
 
-  /* ---------- 참여 ---------- */
-  var Q=[{t:'AI 코스웨어 진단 결과를 수업 설계에 어떻게 반영하셨나요?',n:7,ex:1},{t:'학생 기기 관리는 학년별로 어떻게 나누셨는지 궁금해요.',n:4,ex:1}];
-  function renderQ(){
-    document.getElementById('qlist').innerHTML=Q.map(function(q,i){return {q:q,i:i}}).sort(function(a,b){return b.q.n-a.q.n}).map(function(o){
-      return '<li><p>'+esc(o.q.t)+(o.q.ex?' <span class="tmp">예시</span>':'')+'</p><button class="like" type="button" data-i="'+o.i+'" aria-label="공감하기">♥ '+o.q.n+'</button></li>';
-    }).join('');
-  }
-  document.getElementById('qlist').addEventListener('click',function(e){var b=e.target.closest('.like');if(!b)return;Q[+b.dataset.i].n++;renderQ()});
-  document.getElementById('askForm').addEventListener('submit',function(e){e.preventDefault();var i=document.getElementById('askInput'),v=i.value.trim();if(!v)return;Q.push({t:v,n:0});i.value='';renderQ()});
+  /* ---------- 오시는 길: 구글 지도 (삽입이 막히는 환경이면 그림 지도로 대신) ---------- */
+  (function(){
+    var box=document.getElementById('gmapBox'); if(!box)return;
+    var f=document.createElement('iframe');
+    var kill=function(e){if(e.blockedURI&&e.blockedURI.indexOf('google')>-1&&f.parentNode){f.parentNode.removeChild(f)}};
+    document.addEventListener('securitypolicyviolation',kill);
+    f.src='https://www.google.com/maps?q=%EA%B2%BD%EB%82%A8%20%EC%96%91%EC%82%B0%EC%8B%9C%20%EB%8F%99%EB%A9%B4%20%EA%B8%88%EC%98%A416%EA%B8%B8%20105&output=embed&hl=ko&z=17';
+    f.title='구글 지도 · 석산초등학교 (경남 양산시 동면 금오16길 105)';
+    f.loading='lazy'; f.referrerPolicy='no-referrer-when-downgrade'; f.setAttribute('allowfullscreen','');
+    box.insertBefore(f,box.querySelector('.map-open'));
+  })();
+  document.getElementById('copyAddr').addEventListener('click',function(){
+    var b=this, t=document.getElementById('addrText').textContent;
+    var done=function(ok){b.textContent=ok?'복사했어요':'주소를 길게 눌러 복사해 주세요';setTimeout(function(){b.textContent='주소 복사'},2200)};
+    try{navigator.clipboard.writeText(t).then(function(){done(true)},function(){done(false)})}catch(e){done(false)}
+  });
 
   /* ---------- 디자인 시안 전환 ---------- */
   function setSkin(s){
     root.dataset.skin=s;
     document.querySelectorAll('.skin-switch button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.skin===s))});
     try{localStorage.setItem('rs-skin',s)}catch(e){}
-    renderBigMap(); if(!modal.hidden)drawModalMap();
   }
   document.querySelector('.skin-switch').addEventListener('click',function(e){var b=e.target.closest('button');if(b)setSkin(b.dataset.skin)});
 
   /* ---------- 페이지 전환 ---------- */
-  var PAGES=['home','program','map','schools','join'];
+  var PAGES=['home','program','schools','way'];
   function show(p){
     if(PAGES.indexOf(p)<0)p='home';
     document.querySelectorAll('[data-page]').forEach(function(s){s.hidden=s.dataset.page!==p});
     document.querySelectorAll('.nav a,.tabbar a').forEach(function(a){if(a.dataset.p===p)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
-    if(p==='map')renderBigMap();
     if(p==='program')renderParts();
     window.scrollTo(0,0);
   }
@@ -1048,7 +911,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-betw
   window.addEventListener('hashchange',function(){show(location.hash.slice(1))});
 
   setSkin(root.dataset.skin||'a');
-  dday();renderSteps();renderParts();renderQ();
+  dday();renderSteps();renderParts();
   show(location.hash.slice(1)||'home');
   setInterval(function(){if(!sim){renderSteps();if(!document.querySelector('[data-page="program"]').hidden)renderParts()}},60000);
 })();
