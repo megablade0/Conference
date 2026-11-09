@@ -464,6 +464,8 @@ main{padding-block:30px 72px}
 /* ================= 연구학교 ================= */
 .schools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .school{padding:26px;display:flex;flex-direction:column;gap:16px;min-width:0}
+@supports (grid-template-rows:subgrid){.school{display:grid;grid-row:span 3;grid-template-rows:subgrid;align-content:start}.school .docs{align-self:start}}
+.school .topic{word-break:keep-all}
 .school-top{display:flex;align-items:center;gap:14px}
 .school .emb{width:58px;height:58px;font-size:24px}
 [data-skin="a"] .school .emb{background:transparent;border:2px solid var(--c);box-shadow:inset 0 0 0 3px var(--surface),inset 0 0 0 5px var(--c);color:var(--ci);transform:rotate(-8deg)}
@@ -862,16 +864,20 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-betw
   })();
 
   /* ---------- 연구학교 ---------- */
+  /* 학교별 자료 링크: 각 학교의 links에 '항목 이름':'주소'를 넣으면 '열기'로 바뀜 (주소 없는 항목은 '준비 중') */
   var SCHOOLS=[
-    {sc:1,n:'석산초등학교',e:'석',reg:'양산 · 개최교',topic:'AI 디지털 기반 SUCCESS 모델 운영을 통한 사회정서역량 강화'},
-    {sc:2,n:'거제양정초등학교',e:'양',reg:'거제',topic:'보듬(B.O.D.M.) 성장모델의 개발·적용을 통한 포용적 미래역량 기르기'},
-    {sc:3,n:'부곡초등학교',e:'부',reg:'지역 입력 예정',topic:'AI·디지털 기반 교육자료 등을 활용한 교수·학습 혁신 및 학생 역량 강화 지원방안 연구'}
+    {sc:1,n:'석산초등학교',e:'석',reg:'양산 · 개최교',topic:'AI 디지털 기반 SUCCESS 모델 운영을 통한 사회정서역량 강화',
+      links:{'운영 보고서':'https://works.do/FOmmJ2Q','수업 매거진':'https://works.do/GK55HNK','교수·학습 과정안':'https://works.do/5LAAz9G','운영 보고 영상':'https://works.do/F6JJy1Q'}},
+    {sc:2,n:'거제양정초등학교',e:'양',reg:'거제',topic:'보듬(B.O.D.M.) 성장모델의 개발·적용을 통한 포용적 미래역량 기르기',
+      docs:['운영 보고서','교수·학습 과정안','운영 보고 영상'],
+      links:{'운영 보고서':'https://works.do/GLuAAmd','교수·학습 과정안':'https://works.do/Fp1MMFP','운영 보고 영상':'https://works.do/GLuAAmd'}},
+    {sc:3,n:'부곡초등학교',e:'부',reg:'창녕',topic:'AI·디지털 기반 교육자료 등을 활용한 교수·학습 혁신 및 학생 역량 강화 지원방안 연구'}
   ];
   document.getElementById('schoolList').innerHTML=SCHOOLS.map(function(s){
     var v='--c:var(--s'+s.sc+');--cb:var(--s'+s.sc+'-bg);--ci:var(--s'+s.sc+'-ink)';
     return '<article class="card school" style="'+v+'"><div class="school-top"><span class="emb">'+s.e+'</span><div><h2>'+s.n+'</h2><p class="region">'+s.reg+'</p></div></div>'+
       '<div><p class="topic-l">연구 주제</p><p class="topic">'+s.topic+'</p></div>'+
-      '<ul class="docs">'+['운영 보고서','수업 매거진','교수·학습 과정안','운영 보고 영상'].map(function(d){return '<li><a href="#schools">'+d+'<span>준비 중 →</span></a></li>'}).join('')+'</ul></article>';
+      '<ul class="docs">'+(s.docs||['운영 보고서','수업 매거진','교수·학습 과정안','운영 보고 영상']).map(function(d){var u=(s.links||{})[d];return u?'<li><a href="'+u+'" target="_blank" rel="noopener">'+d+'<span>열기 ↗</span></a></li>':'<li><a href="#schools">'+d+'<span>준비 중 →</span></a></li>'}).join('')+'</ul></article>';
   }).join('');
 
   /* ---------- 오시는 길: 구글 지도 (삽입이 막히는 환경이면 그림 지도로 대신) ---------- */
